@@ -1,5 +1,6 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { addNew } from '../controller/user.controller.js';
+import { bodyChecker } from '../modules/helpers/bodyChecker.js';
 import { urlSlashChecker } from '../modules/helpers/urlSlashChecker.js';
 
 export function postRoutes(request: IncomingMessage, response: ServerResponse) {
@@ -11,9 +12,14 @@ export function postRoutes(request: IncomingMessage, response: ServerResponse) {
     request.on('end', () => {
       const buffer = Buffer.concat(chunks);
       const body = Buffer.from(buffer);
-      addNew(body);
-      response.statusCode = 201;
-      response.end(body);
+      if (bodyChecker(body)) {
+        addNew(body);
+        response.statusCode = 201;
+        response.end(body);
+      } else {
+        response.statusCode = 400;
+        response.end('Body does not contain required fields');
+      }
     });
   } else {
     response.statusCode = 404;
