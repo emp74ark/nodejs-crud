@@ -12,10 +12,18 @@ export function getById(url: string | undefined): Route {
   const response = user === undefined ? 'Not found' : JSON.stringify(user);
   return {
     code,
-    data: response
+    data: response,
   };
 }
 
 export function addNew(body: Buffer) {
   data.push(JSON.parse(body.toString()) as User);
+}
+
+export function updateById(url: string | undefined, body: Buffer) {
+  const id = url?.match(/\d+$/g)?.[0];
+  data.forEach((el, i) => {
+    el.id === id;
+    data[i] = JSON.parse(body.toString()) as User
+  })
 }
