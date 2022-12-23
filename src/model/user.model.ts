@@ -1,3 +1,11 @@
-import { User } from "../interfaces.js";
+import { User } from '../interfaces.js';
 
-export const data: User[] = []
+export let data: User[] = [];
+
+export function getData() {
+  return data;
+}
+
+export function updateData(values: User[]) {
+  data = values;
+}

@@ -1,4 +1,5 @@
 import { createServer } from 'node:http';
+import { deleteRoutes } from '../routes/deleteRoutes.js';
 import { getRoutes } from '../routes/getRoutes.js';
 import { postRoutes } from '../routes/postRoutes.js';
 import { putRoutes } from '../routes/putRoutes.js';
@@ -19,7 +20,7 @@ export function startServer(address = '127.0.0.1', port = 3000, backlog = 64) {
       postRoutes(request, response);
     }
     if (request.method === 'DELETE') {
-      response.end('delete');
+      deleteRoutes(request, response);
     }
   }).listen(port, address, backlog, () => {
     msgStartServer(address, port);
