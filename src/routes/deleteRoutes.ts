@@ -1,13 +1,18 @@
 import { IncomingMessage, ServerResponse } from 'http';
-import { deleteById } from '../controller/user.controller.js';
+import { deleteById, getById } from '../controller/user.controller.js';
 import { urlSlashChecker } from '../modules/helpers/urlSlashChecker.js';
 
 export function deleteRoutes(request: IncomingMessage, response: ServerResponse) {
-  // TODO: check for valid UID (400)
   if (urlSlashChecker(request.url)?.match(/\/api\/users\/\d/)?.input) {
-    deleteById(request.url);
-    response.statusCode = 204;
-    response.end();
+    const { code, data } = getById(request.url);
+    if (code === 200) {
+      deleteById(request.url);
+      response.statusCode = 204;
+      response.end();
+    } else {
+      response.statusCode = code;
+      response.end(data);
+    }
   } else {
     response.statusCode = 404;
     response.end('Not found');
