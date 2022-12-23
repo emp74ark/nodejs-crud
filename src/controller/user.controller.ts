@@ -1,4 +1,4 @@
-import { Route } from '../interfaces.js';
+import { Route, User } from '../interfaces.js';
 import { getData, updateData } from '../model/user.model.js';
 
 export function getAll() {
@@ -17,7 +17,11 @@ export function getById(url: string | undefined): Route {
 }
 
 export function addNew(body: Buffer) {
-  const newData = [...getData(), JSON.parse(body.toString())];
+  const newBody: User = {
+    id: Date.now(),
+    ...JSON.parse(body.toString())
+  }
+  const newData = [...getData(), newBody];
   updateData(newData);
 }
 
