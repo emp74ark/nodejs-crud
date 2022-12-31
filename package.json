@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "dev": "npx nodemon",
     "prod": "rimraf ./build && npx tsc"
   },
