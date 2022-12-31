@@ -23,6 +23,6 @@ export function postRoutes(request: IncomingMessage, response: ServerResponse) {
     });
   } else {
     response.statusCode = 404;
-    response.end('Not found1');
+    response.end('Not found');
   }
 }
