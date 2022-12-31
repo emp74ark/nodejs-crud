@@ -18,7 +18,7 @@ describe('GET requests', () => {
   it('get users', async () => {
     const result = await request.get('/api/users/');
     expect(result.statusCode).toBe(200);
-    expect(result.text).toBe('[]');
+    expect(Array.isArray(JSON.parse(result.text))).toBeTruthy();
   });
   it('get 400', async () => {
     const result = await request.get('/api/users/1');
