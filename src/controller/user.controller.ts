@@ -7,7 +7,7 @@ export function getAll() {
 
 export function getById(url: string | undefined): Route {
   const id = url?.match(/\d+$/g)?.[0];
-  const user = getData().find((el) => el.id === id);
+  const user = getData().find((el) => el.id == id);
   const code = user === undefined ? 400 : 200;
   const response = user === undefined ? 'Not found' : JSON.stringify(user);
   return {
