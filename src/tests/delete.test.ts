@@ -13,7 +13,7 @@ const fakeData = {
 
 const fakeWrongData = '12345';
 
-describe('POST requests', () => {
+describe('DELETE requests', () => {
   it('delete user', async () => {
     const post = await request
       .post('/api/users/')
