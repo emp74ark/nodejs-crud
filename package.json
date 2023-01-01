@@ -7,6 +7,8 @@
   "scripts": {
     "test": "jest",
     "dev": "npx nodemon",
+    "start": "npx ts-node ./src/index.ts",
+    "start:multi": "npx ts-node ./src/multi.ts",
     "prod": "rimraf ./build && npx tsc"
   },
   "author": "emp74ark",
