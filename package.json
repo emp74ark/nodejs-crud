@@ -6,10 +6,10 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "dev": "npx nodemon",
     "start": "npx ts-node ./src/index.ts",
+    "start:dev": "npx nodemon",
     "start:multi": "npx ts-node ./src/multi.ts",
-    "prod": "rimraf ./build && npx tsc"
+    "start:prod": "rimraf ./build && npx tsc"
   },
   "author": "emp74ark",
   "license": "ISC",

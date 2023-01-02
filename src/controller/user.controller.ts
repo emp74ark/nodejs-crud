@@ -1,5 +1,5 @@
 import { Route, User } from '../interfaces.js';
-import { getData, updateData } from '../model/user.model.js';
+import { getData, updateData } from './data.controller.js';
 
 export function getAll() {
   return JSON.stringify(getData());
@@ -19,8 +19,8 @@ export function getById(url: string | undefined): Route {
 export function addNew(body: Buffer) {
   const newBody: User = {
     id: Date.now(),
-    ...JSON.parse(body.toString())
-  }
+    ...JSON.parse(body.toString()),
+  };
   const newData = [...getData(), newBody];
   updateData(newData);
 }
