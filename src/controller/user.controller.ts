@@ -2,6 +2,7 @@ import { Route, User } from '../interfaces.js';
 import { getData, updateData } from './data.controller.js';
 
 export function getAll() {
+  console.log('user', process.pid)
   return JSON.stringify(getData());
 }
 

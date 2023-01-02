@@ -21,6 +21,7 @@ export function getRoutes(url: IncomingMessage['url']) {
     case '/api/users/':
       route.code = 200;
       route.data = getAll();
+      console.log('routes', process.pid, route.data)
       break;
     case urlSlashChecker(url)?.match(/\/api\/users\/\d/)?.input:
       route.code = getById(url).code;

@@ -7,7 +7,7 @@ import { msgStartServer } from './messages.js';
 
 export function startServer(address = '127.0.0.1', port = 3000, backlog = 64) {
   createServer((request, response) => {
-    // response.setHeader('Content-Type', 'application/json');
+    response.setHeader('Content-Type', 'application/json');
     if (request.method === 'GET') {
       const { code, data } = getRoutes(request.url);
       response.statusCode = code;
