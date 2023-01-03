@@ -6,8 +6,8 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "start": "npx ts-node src/index.ts",
     "start:dev": "npx nodemon",
+    "start:single": "npx ts-node src/index.ts",
     "start:multi": "npx ts-node src/index.ts --multi",
     "start:prod": "rimraf ./build && npx tsc"
   },

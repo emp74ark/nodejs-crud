@@ -4,8 +4,7 @@ import { cpus } from 'os';
 import { startServer } from './modules/http.js';
 import { ClusterMessage } from './interfaces.js';
 import { msgStartProcess, msgStopProcess } from './modules/messages.js';
-import { getData } from './controller/data.controller.js';
-import { updateSharedData } from './model/user.model.js';
+import { overwriteSharedData } from './model/user.model.js';
 import { multiModeChecker } from './modules/helpers/multiChecker.js';
 
 
@@ -20,12 +19,13 @@ if (multiModeChecker() && cluster.isPrimary) {
     const forkPort = PORT !== undefined ? Number(PORT) + 1+ i : 4000 + 1 + i;
     const worker = cluster.fork({ port: forkPort });
 
-    worker.on('message', (message: ClusterMessage) => { // receive from worker, handle by master
+    worker.on('message', (message: ClusterMessage) => { // from worker to master
       const { type, payload } = message;
-      if (type === 'get') {
-        worker.send({ type: 'overwrite', payload: getData() }); // from master, handle by worker
+      if (type === 'update') {
+        for (const id in cluster.workers) {
+          cluster.workers[id]?.send({ type: 'overwrite', payload: payload })
+        }
       }
-      if (type === 'update') updateSharedData(payload);
     });
 
   }
@@ -37,6 +37,14 @@ if (multiModeChecker() && cluster.isPrimary) {
 if (multiModeChecker() && cluster.isWorker) {
   startServer(HOST, Number(process.env.port), Number(BACKLOG));
   msgStartProcess('Worker', process.pid);
+
+  process.on('message', (message: ClusterMessage) => { // from master to worker
+    const { type, payload } = message;
+    if (type === 'overwrite') {
+      overwriteSharedData(payload);
+    }
+  });
+
 }
 
 if (!multiModeChecker()) {

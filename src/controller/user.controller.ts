@@ -2,7 +2,6 @@ import { Route, User } from '../interfaces.js';
 import { getData, updateData } from './data.controller.js';
 
 export function getAll() {
-  console.log('user', process.pid)
   return JSON.stringify(getData());
 }
 
@@ -28,12 +27,12 @@ export function addNew(body: Buffer) {
 
 export function updateById(url: string | undefined, body: Buffer) {
   const id = url?.match(/\d+$/g)?.[0];
-  const newData = getData().map((el) => (el.id === id ? (el = JSON.parse(body.toString())) : el));
+  const newData = getData().map((el) => (el.id == id ? el = {id, ...JSON.parse(body.toString())} : el));
   updateData(newData);
 }
 
 export function deleteById(url: string | undefined) {
   const id = url?.match(/\d+$/g)?.[0];
-  const newData = getData().filter((el) => el.id !== id);
+  const newData = getData().filter((el) => el.id != id);
   updateData(newData);
 }
