@@ -5,7 +5,7 @@
 - [Task description](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md)
 - Deadline: 2023-01-24 00:59
 - [Scorring rules](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/score.md)
-- Self check: 187/202 (see description bellow)
+- Self check: 197/202 (see description bellow)
 
 ## Description
 
@@ -16,23 +16,32 @@ npm install
 rename **.env.exaple** to **.env**
 
 ### Start
-Developement mode:
+**Developement mode:**
 ```bash
 npm run start:dev
 ```
-Run single instance:
+**Run single instance:**
 ```bash
 npm run start:single
 ```
-Run in "multi-mode":
+**Run in "multi-mode":**
 ```bash
 npm run start:multi
 ```
-Every instance runs on localohost:port, where port = port number from .env + n (based on CPU cores number) 
-Production build:
+Every instance runs on localhost:port, where port = port number from .env + n (based on CPU cores number) 
+
+**Production build:**
+Compile JS from TS (./build) and run build.
 ```bash
 npm run start:prod
 ```
+
+**Generate bundle:**
+Generate single bundle file (./bundle/bundle.js).
+```bash
+npm run bundle
+```
+
 Run tests:
 ```bash
 npm run test
@@ -55,7 +64,7 @@ npm run test
 - **+10** Processing of requests to non-existing endpoints implemented properly
 - **+10** Errors on the server side that occur during the processing of a request should be handled and processed properly
 - **+10** Development mode: `npm` script `start:dev` implemented properly
-- **+10 - 100% = 0** Production mode: `npm` script `start:prod` implemented properly (building the bundled file is not implemented)
+- **+10** Production mode: `npm` script `start:prod` implemented properly (building the bundled file is not implemented)
 
 #### Hacker Scope
 - **+30** There are tests for API (not less than **3** scenarios)
@@ -65,5 +74,4 @@ npm run test
 - None
 
 ## Todo
-- make prod bundle
 - implement load balancer according to task rules
