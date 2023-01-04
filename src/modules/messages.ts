@@ -15,3 +15,7 @@ export const msgStartProcess = (type: string, pid: number) => {
 export const msgStopProcess = (pid: number, code: number) => {
   console.log(chalk.red(`Worker ${pid} finished with code ${code}`));
 };
+
+export const msgServerError = (err: any) => {
+  console.log(chalk.bgRed.white(`Server error: ${err}`))
+}
