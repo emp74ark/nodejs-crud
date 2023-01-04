@@ -1,5 +1,6 @@
 import { Route, User } from '../interfaces.js';
 import { getData, updateData } from './data.controller.js';
+import { userIdValidator } from '../modules/helpers/idValidator.js';
 
 export function getAll() {
   return JSON.stringify(getData());
@@ -7,8 +8,11 @@ export function getAll() {
 
 export function getById(url: string | undefined): Route {
   const id = url?.match(/\d+$/g)?.[0];
+  if (!userIdValidator(id)) {
+    return { code: 400, data: 'User not valid' };
+  }
   const user = getData().find((el) => el.id == id);
-  const code = user === undefined ? 400 : 200;
+  const code = user === undefined ? 404 : 200;
   const response = user === undefined ? 'User not found' : JSON.stringify(user);
   return {
     code,
