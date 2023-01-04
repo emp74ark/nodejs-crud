@@ -1,14 +1,17 @@
 import supertest from 'supertest';
+import { config } from 'dotenv';
 
-const host = '127.0.0.1';
-const port = '4000';
-const request = supertest(`${host}:${port}`);
+config();
+
+const { HOST, PORT } = process.env;
+
+const request = supertest(`${HOST}:${PORT}`);
 
 describe('GET requests', () => {
   it('greeting from root', async () => {
     const result = await request.get('/');
     expect(result.statusCode).toBe(200);
-    expect(result.text).toBe(`API address is ${host}:${port}/api`);
+    expect(result.text).toBe(`API address is ${HOST}:${PORT}/api`);
   });
   it('greeting from api', async () => {
     const result = await request.get('/api');
@@ -27,6 +30,6 @@ describe('GET requests', () => {
   it('get 404', async () => {
     const result = await request.get('/api/unknown');
     expect(result.statusCode).toBe(404);
-    expect(result.text).toBe('Not found');
+    expect(result.text).toBe('Page not found');
   });
 });

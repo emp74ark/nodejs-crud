@@ -1,9 +1,12 @@
-import supertest from 'supertest';
 import { User } from '../interfaces.js';
+import supertest from 'supertest';
+import { config } from 'dotenv';
 
-const host = '127.0.0.1';
-const port = '4000';
-const request = supertest(`${host}:${port}`);
+config();
+
+const { HOST, PORT } = process.env;
+
+const request = supertest(`${HOST}:${PORT}`);
 
 const fakeData = {
   'username': 'UserName',
@@ -28,7 +31,7 @@ describe('DELETE requests', () => {
     const post = await request
       .delete(`/api/users/${fakeWrongData}`)
     expect(post.statusCode).toBe(400);
-    expect(post.text).toBe('Not found');
+    expect(post.text).toBe('User not found');
   });
   it('delete user on wrong address', async () => {
     const post = await request

@@ -28,7 +28,7 @@ export function getRoutes(url: IncomingMessage['url']) {
       break;
     default:
       route.code = 404;
-      route.data = 'Not found';
+      route.data = 'Page not found';
       break;
   }
 

@@ -1,9 +1,12 @@
-import supertest from 'supertest';
 import { User } from '../interfaces.js';
+import supertest from 'supertest';
+import { config } from 'dotenv';
 
-const host = '127.0.0.1';
-const port = '4000';
-const request = supertest(`${host}:${port}`);
+config();
+
+const { HOST, PORT } = process.env;
+
+const request = supertest(`${HOST}:${PORT}`);
 
 const fakeData = {
   'username': 'UserName',
