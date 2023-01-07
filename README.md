@@ -32,10 +32,6 @@ npm run start:dev
 ```bash
 npm run start:single
 ```
-and similar mode, but with prebuild to js:
-```bash
-npm run start:js
-```
 
 **Run in "multi-mode":**
 
