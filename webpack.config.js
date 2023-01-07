@@ -29,5 +29,12 @@ export default {
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname, 'bundle'),
+    module: true,
+    libraryTarget: 'module',
+    chunkLoading: 'import',
+    chunkFormat: 'module',
+  },
+  experiments: {
+    outputModule: true,
   },
 };

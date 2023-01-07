@@ -6,11 +6,11 @@
   "type": "module",
   "scripts": {
     "test": "jest",
-    "start:dev": "npx nodemon",
-    "start:single": "npx ts-node src/index.ts",
-    "start:multi": "npx ts-node src/index.ts --multi",
-    "start:prod": "rimraf ./build && npx tsc && node ./build/index.js",
-    "bundle": "rimraf ./bundle && npx webpack --config webpack.config.js"
+    "start:dev": "nodemon",
+    "start:single": "ts-node src/index.ts",
+    "start:multi": "ts-node src/index.ts --multi",
+    "start:js": "rimraf ./build && tsc && node ./build/index.js",
+    "start:prod": "rimraf ./bundle && webpack --config webpack.config.js && node ./bundle/bundle.js"
   },
   "author": "emp74ark",
   "license": "ISC",

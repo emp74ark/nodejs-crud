@@ -12,6 +12,8 @@
 ### Prepare to start
 
 ```bash
+git clone https://github.com/emp74ark/nodejs-crud
+cd nodejs-crud
 npm install
 ```
 
@@ -30,6 +32,10 @@ npm run start:dev
 ```bash
 npm run start:single
 ```
+and similar mode, but with prebuild to js:
+```bash
+npm run start:js
+```
 
 **Run in "multi-mode":**
 
@@ -39,18 +45,11 @@ npm run start:multi
 
 Every instance runs on localhost:port, where port = port number from .env + n (based on CPU cores number)
 
-**Production build:**
-Compile JS from TS (./build) and run build.
+**Production mode:**
+Build bundle (single file) and run it.
 
 ```bash
 npm run start:prod
-```
-
-**Generate bundle:**
-Generate single bundle file (./bundle/bundle.js).
-
-```bash
-npm run bundle
 ```
 
 Run tests:
