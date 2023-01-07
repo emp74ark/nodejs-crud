@@ -22,7 +22,7 @@ export function getRoutes(url: IncomingMessage['url']) {
       route.code = 200;
       route.data = getAll();
       break;
-    case urlSlashChecker(url)?.match(/\/api\/users\/\d/)?.input:
+    case urlSlashChecker(url)?.match(/(\/api\/users\/)(.*)(\/)/)?.[0]:
       route.code = getById(url).code;
       route.data = getById(url).data;
       break;

@@ -3,7 +3,7 @@ import { deleteById, getById } from '../controller/user.controller.js';
 import { urlSlashChecker } from '../modules/helpers/urlSlashChecker.js';
 
 export function deleteRoutes(request: IncomingMessage, response: ServerResponse) {
-  if (urlSlashChecker(request.url)?.match(/\/api\/users\/\d/)?.input) {
+  if (urlSlashChecker(request.url)?.match(/(\/api\/users\/)([a-z0-9-]+)(\/)/)?.[0]) {
     const { code, data } = getById(request.url);
     if (code === 200) {
       deleteById(request.url);
