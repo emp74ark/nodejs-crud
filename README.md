@@ -53,7 +53,11 @@ npm run start:prod
 ```
 
 Run tests:
-
+Run server before tests:
+``` bash
+npm run start:single
+```
+then:
 ```bash
 npm run test
 ```
