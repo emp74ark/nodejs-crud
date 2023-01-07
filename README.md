@@ -5,7 +5,7 @@
 - [Task description](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md)
 - Deadline: 2023-01-24 00:59
 - [Scorring rules](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/score.md)
-- Self check: 192/202 (see description bellow)
+- Self check: 195/202 (see description bellow)
 
 ## Description
 
@@ -79,7 +79,7 @@ npm run test
 - **+10** Errors on the server side that occur during the processing of a request should be handled and processed
   properly
 - **+10** Development mode: `npm` script `start:dev` implemented properly
-- **+10 - 50% = 5** Production mode: `npm` script `start:prod` implemented properly (building the bundled file is not implemented)
+- **+10** Production mode: `npm` script `start:prod` implemented properly (building the bundled file is not implemented)
 
 #### Hacker Scope
 

@@ -14,7 +14,7 @@ const fakeData = {
   'hobbies': ['chess'],
 };
 
-const fakeWrongData = '12345';
+const fakeWrongData = '123457890123';
 
 describe('DELETE requests', () => {
   it('delete user', async () => {
@@ -31,7 +31,7 @@ describe('DELETE requests', () => {
     const post = await request
       .delete(`/api/users/${fakeWrongData}`)
     expect(post.statusCode).toBe(400);
-    expect(post.text).toBe('User not found');
+    expect(post.text).toBe('User not valid');
   });
   it('delete user on wrong address', async () => {
     const post = await request
