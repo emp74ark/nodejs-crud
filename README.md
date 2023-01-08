@@ -5,7 +5,7 @@
 - [Task description](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md)
 - Deadline: 2023-01-24 00:59
 - [Scorring rules](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/score.md)
-- Self check: 195/202 (see description bellow)
+- Self check: 202/202
 
 ## Description
 
@@ -38,8 +38,6 @@ npm run start:single
 ```bash
 npm run start:multi
 ```
-
-Every instance runs on localhost:port, where port = port number from .env + n (based on CPU cores number)
 
 **Production mode:**
 Build bundle (single file) and run it.
@@ -84,7 +82,7 @@ npm run test
 #### Hacker Scope
 
 - **+30** There are tests for API (not less than **3** scenarios)
-- **+50 - 50% = 25** There is horizontal scaling for application with a **load balancer** (no load balancer on PORT
+- **+50** There is horizontal scaling for application with a **load balancer** (no load balancer on PORT
   4000)
 
 #### Forfeits
@@ -92,5 +90,3 @@ npm run test
 - None
 
 ## Todo
-
-- implement load balancer according to task rules
