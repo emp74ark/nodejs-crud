@@ -14,6 +14,7 @@
 ```bash
 git clone https://github.com/emp74ark/nodejs-crud
 cd nodejs-crud
+git checkout develop
 npm install
 ```
 
