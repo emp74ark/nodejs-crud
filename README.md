@@ -5,7 +5,7 @@
 - [Task description](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/assignment.md)
 - Deadline: 2023-01-24 00:59
 - [Scorring rules](https://github.com/AlreadyBored/nodejs-assignments/blob/main/assignments/crud-api/score.md)
-- Self check: 202/202
+- Self check: 222/222
 
 ## Description
 
